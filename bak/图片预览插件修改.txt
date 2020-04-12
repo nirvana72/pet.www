@@ -1,0 +1,32 @@
+// 修改vue-active-preview 组件 src/preview.vue， 增加PC模式切换图片和关闭功能
+line 5
+<div class="preview-counter" v-if="showCounter && previewItemCount > 1" :style="counterStyle">
+  <div v-if="env === 'pc'" class="preview-close">
+    <span @click="btnSwitchPhoto(-1)">◀</span>
+    <span @click="$emit('close')">✖</span>
+    <span @click="btnSwitchPhoto(1)">▶</span>
+  </div>
+  <span>{{activeIndex}} / {{previewItemCount - 2}}</span>      
+</div>
+
+line 112
+props: {
+    env: {
+      type: String,
+      default: 'mobile'
+    },
+
+line 405
+btnSwitchPhoto(dir){
+  activeIndex = activeIndex + dir
+  this.transX = -clientW * activeIndex
+  this.isTransToX = true
+  this.correctDurationAct()
+},
+
+line 769
+.preview-close span{
+  display:inline-block;
+  padding: 0 10px;
+  cursor: pointer;
+}

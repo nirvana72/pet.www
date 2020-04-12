@@ -1,0 +1,41 @@
+/* 场景切换动画*/
+.slide-to-enter {
+  transform: translate3d(100%, 0, 0);
+}
+.slide-to-enter-active{
+  transition: transform 500ms; 
+  position: absolute;
+}
+.slide-to-enter-to{
+  transform: translate3d(0, 0, 0);
+}
+.slide-to-leave{
+  
+}
+.slide-to-leave-active {  
+  display: none;
+}
+.slide-to-leave-to{
+  
+}
+
+.slide-back-enter {
+   z-index:1;
+}
+.slide-back-enter-active{
+  
+}
+.slide-back-enter-to{
+  
+}
+.slide-back-leave{
+  transform: translate3d(0, 0, 0); 
+}
+.slide-back-leave-active {  
+  transition: transform 500ms; 
+  position: absolute;
+  z-index:999;
+}
+.slide-back-leave-to{
+  transform: translate3d(100%, 0, 0);
+}

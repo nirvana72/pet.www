@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <title>苏州-花鸟鱼虫</title>
+  <style>
+      html, body {
+          margin: 0px;
+          padding: 0px;
+      }
+      div.title {
+        height:auto;
+        background-color:#1e90ff;
+        text-align: center;
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+      div.title img {
+          width: 80px;
+          height: 80px;
+          background-color: black;
+          border-radius: 10px;
+      }
+      div.title label {
+          display: block;
+      }
+      div.content {
+          padding-top: 100px;
+      }
+      div.content a {
+          display: block;
+          margin: 20px auto 0 auto;
+          padding-top: 15px;
+          width: 200px;
+          height: 35px;
+          background-color: #1e90ff;
+          border-radius: 10px;
+          color: #ffffff;
+      }
+      div.content a img{
+          display: block;
+          padding-left:20px;
+          padding-right:20px;
+          float: left;
+          width: 20px;
+          height: 20px;
+      }
+  </style>
+</head>
+<body>
+    <div class="title">
+        <img src="../assets/img/logo.png" />
+        <label>花鸟鱼虫</label>       
+    </div>
+    <div class="content">
+        <a href="#" target="_blank" id="android_download_link">
+            <img src="/home/android.png" />
+            <span>android 下载</span>
+        </a>
+        <a href="itms-apps://itunes.apple.com/app/1457325254" target="_blank">
+            <img src="/home/ios.png" />
+            <span>ios 下载</span>
+        </a>
+    </div>
+</body>
+</html>
+
+<script>
+    $(function(){
+        $.ajax({
+            type: 'GET',
+            url: 'https://api.mu78.com/v2/app/server/version',
+            success: function(json){
+                $('#android_download_link').attr('href', json.apkurl);
+            }
+        });
+    })
+</script>

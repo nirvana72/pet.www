@@ -1,0 +1,338 @@
+$text_color: #757575;
+$border: 1px #e0e0e0 solid;
+$navbar_height: 60px;
+
+html,
+body {
+  font-family: Helvetica, Tahoma, Arial, 'Microsoft YaHei', 'Hiragino Sans GB',
+    'WenQuanYi Micro Hei', sans-serif;
+  font-size: 14px;
+  -webkit-overflow-scrolling: touch;
+  color: $text_color;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+/* 内容容器 */
+.nj-view {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+// 导航栏 主页没有用到
+.nj-navigationbar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: #ffffff;
+  height: $navbar_height;
+  border-bottom: $border;
+  overflow: hidden;
+  > .nj-nav-title {
+    width: 100%;
+    line-height: $navbar_height;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bolder;
+  }
+  > .nj-nav-left {
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    padding-left: 10px;
+    .v-btn {
+      margin: 0;
+    }
+  }
+  > .nj-nav-right {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    .v-btn {
+      margin: 0;
+    }
+  }
+}
+// push子页
+.nj-view-sub {
+  z-index: 11;
+  background-color: #efeff4;
+}
+// push子页 正文部分
+.nj-view-content {
+  position: fixed;
+  top: $navbar_height;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: scroll;
+  background-color: #efeff4;
+}
+
+.nj-input-box {
+  padding: 0 20px;
+  .v-input {
+    padding-top: 4px;
+    .v-input__slot {
+      background-color: #fff;
+      border: $border;
+      border-radius: 5px;
+      height: 40px;
+      &::before {
+        border-color: #e0e0e0 !important;
+      }
+      .v-input__prepend-inner {
+        padding: 3px 5px 0 5px;
+      }
+      .v-text-field__slot {
+        padding-left:5px;
+      }
+    }   
+  }
+}
+
+.nj-button-box {
+  padding: 0 20px;
+  button {
+    height: 35px;
+    line-height: 35px;
+  }
+}
+
+//模态加载遮罩层
+.centered-loading {
+  background: #282c2dad;
+  box-shadow: none;
+  border-radius: 6px;
+  width: auto !important;
+  color: whitesmoke;
+}
+
+/* 评论回复框*/
+.nj-comments {
+  padding: 20px 20px 50px 20px;
+  div.comments-input {
+    div.v-input {
+      padding: 0;
+      margin: 0 0 10px 0;
+      .v-input__slot {
+        border: 1px solid #e0e0e0;
+        background: #ffffff;
+        padding: 10px;
+        border-radius: 4px;
+        &::before {
+          display: none;
+        }
+        textarea {
+          padding: 0;
+        }
+      }
+    }
+  }
+  > div.comments-list {
+    > div.comment {
+      position: relative;
+      border-bottom: 1px #cccccc dashed;
+      padding: 10px 0;
+      font-size: 0.8em;
+      .comments-avatar {
+        position: absolute;
+        top: 10px;
+        width: 30px;
+        border-radius: 50%;
+      }
+      div.comment-user {
+        padding: 5px 50px 5px 35px;
+        color: #757575;
+        .comment-reply {
+          color: #2196f3;
+        }
+      }
+      span.comment-author {
+        background-color: red;
+        color: white;
+        padding: 2px 4px;
+        border-radius: 2px;
+      }
+      div.comment-content {
+        padding-left: 35px;
+        padding-right: 20px;
+      }
+      div.comment-vote {
+        position: absolute;
+        right: 0;
+        top: 0;
+        button {
+          height: 30px;
+          line-height: 30px;
+          min-width: 10px;
+          .v-icon {
+            color: $text_color;
+            font-size: 1.2em;
+            padding-right: 5px;
+          }
+        }
+      }
+    }
+    .comment-loadmore {
+      text-align: center;      
+      > span {
+        background-color:#757575;
+        color: white;
+        padding: 2px 4px;
+        border-radius: 2px;
+        font-size: 0.8em;
+      }
+    }
+    .subcomment {
+      position: relative;
+      margin-left: 30px;
+      .subcomment-avatar {
+        position: absolute;
+        top: 5px;
+        width: 26px;
+        border-radius: 50%;
+      }
+      .comment-vote {
+        .v-btn {
+          margin-top:0px;
+        }
+      }
+    }
+  }
+}
+
+// 图片预览
+.active-preview {
+  .preview-counter {
+    top: unset;
+    bottom: 0px;
+  }
+}
+
+.nj-nodata {
+  padding-top: 100px;
+  text-align: center;
+  color: #757575;
+}
+// 通用配置
+video {
+  background-color: #000000;
+}
+
+// vuetify框架样式调整
+.v-size--default {
+  font-size: 1em;
+}
+.v-text-field {
+  font-size: 0.8em;
+}
+
+/* 场景切换动画*/
+// slide
+.slide-to-enter {
+  transform: translate3d(100%, 0, 0);
+}
+.slideV-to-enter {
+  transform: translate3d(0, 100%, 0);
+}
+.slide-to-enter-active,
+.slideV-to-enter-active {
+  will-change: transform;
+  transition: transform 500ms ease;
+  position: absolute;
+}
+.slide-to-enter-to,
+.slideV-to-enter-to {
+  transform: translate3d(0, 0, 0);
+}
+.slide-to-leave-active,
+.slideV-to-leave-active {
+  display: none;
+}
+.slide-back-enter,
+.slideV-back-enter {
+  visibility: hidden;
+}
+.slide-back-leave,
+.slideV-back-leave {
+  transform: translate3d(0, 0, 0);
+}
+.slide-back-leave-active,
+.slideV-back-leave-active {
+  will-change: transform;
+  transition: transform 500ms;
+  position: absolute;
+  z-index: 999;
+}
+.slide-back-leave-to {
+  transform: translate3d(100%, 0, 0);
+}
+.slideV-back-leave-to {
+  transform: translate3d(0, 100%, 0);
+}
+// zoom
+.zoom-to-enter {
+  transform: scale(0);
+  opacity: 0;
+}
+.zoom-to-enter-active {
+  will-change: transform;
+  transition: transform 500ms ease;
+  position: absolute;
+}
+.zoom-to-enter-to {
+  transform: scale(1);
+  opacity: 1;
+}
+.zoom-to-leave {
+  display: none;
+}
+.zoom-back-leave {
+  transform: scale(1);
+  opacity: 1;
+}
+.zoom-back-leave-active {
+  will-change: transform;
+  transition: transform 500ms ease;
+  transform: scale(0);
+  opacity: 0.5;
+  position: absolute;
+  z-index: 999;
+}
+
+.zoom-enter-active,
+.zoom-leave-active {
+  transition: transform 500ms ease;
+  transform: scale(1);
+}
+.zoom-enter,
+.zoom-leave-to {
+  transform: scale(0);
+}
+
+/* tab-切换动画*/
+.tab-left-enter,
+.tab-right-leave-to {
+  transform: translate3d(-100%, 0, 0);
+}
+.tab-left-enter-active,
+.tab-left-leave-active,
+.tab-right-enter-active,
+.tab-right-leave-active {
+  will-change: transform;
+  transition: transform 500ms;
+  position: absolute;
+  width: 100%;
+}
+.tab-left-enter-to,
+.tab-left-leave,
+.tab-right-enter-to,
+.tab-right-leave {
+  transform: translate3d(0, 0, 0);
+}
+.tab-left-leave-to,
+.tab-right-enter {
+  transform: translate3d(100%, 0, 0);
+}

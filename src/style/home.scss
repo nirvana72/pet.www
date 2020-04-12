@@ -1,0 +1,115 @@
+$navbar_height: 60px;
+
+.nj-homeview {
+  z-index: 1;
+  position: relative;
+  /* 主页菜单 */
+  > .nj-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $navbar_height;
+    background-color: #d50000;
+    overflow: hidden;
+    .v-tabs {
+      position: absolute;
+      left:0;right:0;bottom:1px;
+      .v-tabs-bar{
+        background-color: unset;
+        .v-tab {
+          width: 80px;
+          .v-icon {
+            margin: 0;
+            color: #000000;
+          }
+          span {
+            display: none;
+          }
+        }
+        .v-tab--active {
+          color: #ffffff;
+          .v-icon {
+            color: #ffffff;
+          }
+          span {
+            display: unset;
+            font-size: 0.9em;
+          }
+        }
+      }
+    }        
+    .v-btn {
+      position: absolute;
+      bottom: 10px;right: 0;
+      border: 0;
+      i {
+        color: #ffffff;
+      }
+    }
+  }
+  > .nj-content {
+    position: fixed;
+    background-color: #fafafa;
+    top: $navbar_height;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  /* 侧边菜单*/
+  > .nj-side-menu {
+    .nj-avatar {
+      padding-top: 50px;
+      text-align: center;
+      img {
+        width: 100px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+    }
+    .menus {
+      margin-top: 50px;
+      padding: 0 20px;
+      .menu {
+        padding:10px 0;
+        i {
+          padding: 0 20px;
+        }
+      }      
+    }
+  }
+  //我的/ 底部菜单
+  .nj-my-bottom-tabs {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    z-index: 2;    
+    .v-tabs-bar{
+      background-color: unset;      
+      .v-tab {
+        padding:0;
+        min-width: 50px;
+        .v-icon {
+          font-size: 15px;
+        }
+      }
+      .v-tab--active {
+        color: #ff0000;
+      }
+    }            
+  }
+}
+
+.index-tab-home {
+  .nj-top-search{
+    padding: 10px 10px 0 10px;
+    .v-input__slot {
+      min-height: 40px !important;
+    }
+  }
+  .nj-top-bar {
+    text-align: center;
+    margin: 5px 0;
+  }
+}

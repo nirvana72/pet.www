@@ -1,0 +1,74 @@
+.home-cell {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    border-top: #d2d2d2 1px solid;
+    border-bottom: #d2d2d2 1px solid;
+    position: relative;    
+    .home-cell-subscribe {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: #ff0000;
+    }
+    .home-cell-images {
+      img {
+        margin-left: 5px;
+      }
+      img:nth-child(1),
+      img:nth-child(4),
+      img:nth-child(7) {
+        margin-left: 0px;
+      }
+    }
+    .home-cell-postAddr {
+      .home-cell-postAddr-icon {
+        font-size: 15px;
+      }
+      font-size: 0.8em;
+      text-align: right;
+      padding: 10px 0;
+    }
+    .home-cell-info {
+      padding-bottom: 10px;
+      line-height: 25px;
+      .home-cell-avatar {
+        position: absolute;
+        width: 50px;
+        border-radius: 50%;
+      }
+      label {
+        margin-left: 60px;
+        display: block;
+      }
+      label.home-cell-tit {        
+        font-weight: bold;
+      }
+      label.home-cell-subtit {
+        font-size: 0.8em;
+      }
+    }
+    .home-cell-rich {
+      .home-cell-abstract {
+        line-height: 1.6em;
+      }
+    }
+    .home-cell-hotrate {
+      margin: 20px 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;  
+      >button{
+        width: 80px;
+        text-indent: 20px;
+      }
+    }
+  }
+  
+  .home-cell-comments {
+    background-color: #ffffff;
+    padding: 10px 0;
+    overflow-y: auto;
+  }
